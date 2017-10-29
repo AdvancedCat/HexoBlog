@@ -63,14 +63,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-
-# archive
-archive_generator:
-  per_page: 0
-  yearly: false
-  monthly: false
-  daily: false
+theme: archer
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -79,3 +72,23 @@ deploy:
   repo: git@github.com:AdvancedCat/advancedcat.github.io.git
   branch: master
   message: Site updated from HexoBlog - {{now('YYYY-MM-DD HH:mm:ss')}}
+
+# For theme archer
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true
