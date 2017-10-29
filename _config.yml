@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
+title: Flying my idea
+subtitle: Welcome to my sweet home
+description: Love work, love life
+author: Xin Hong
 language:
-timezone:
+timezone: CN
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
