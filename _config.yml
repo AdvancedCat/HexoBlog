@@ -8,7 +8,7 @@ subtitle: Welcome to my sweet home
 description: Love work, love life
 author: Xin Hong
 language:
-timezone: CN
+timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -64,6 +64,13 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
+
+# archive
+archive_generator:
+  per_page: 0
+  yearly: false
+  monthly: false
+  daily: false
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
