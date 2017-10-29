@@ -71,3 +71,4 @@ deploy:
   type: git
   repo: git@github.com:AdvancedCat/advancedcat.github.io.git
   branch: master
+  message: Site updated from HexoBlog {{now('YYYY-MM-DD HH:mm:ss')}}
