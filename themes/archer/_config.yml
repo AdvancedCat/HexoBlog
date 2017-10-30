@@ -1,6 +1,6 @@
 # ========== Profile ========== #
 # avatar
-avatar: /avatar/Picachu-min.JPG
+avatar: /avatar/Picachu.min.jpg
 # author name
 author: XinHong
 # signature
@@ -20,8 +20,8 @@ social:
   rss: /atom.xml
 # friends
 friends:
-  #friendA: //www.baidu.com
-  #friendB: //www.google.com
+  # friendA: //www.baidu.com
+  # friendB: //www.google.com
   # friendC :
 about:
   enable: true
