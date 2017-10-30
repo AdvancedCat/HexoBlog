@@ -1,7 +1,7 @@
 {
-  "name": "hexo-site",
+  "name": "HexoBlog",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "hexo": {
     "version": "3.4.0"
   },
