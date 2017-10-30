@@ -1,0 +1,80 @@
+# ========== Profile ========== #
+# avatar
+avatar: /avatar/Picachu-min.JPG
+# author name
+author: XinHong
+# signature
+signature: Love life
+# SNS
+social:
+  email: wshx1938@163.com
+  github: //github.com/AdvancedCat
+  weibo:
+  # zhihu:
+  # facebook:
+  # twitter:
+  # instagram:
+  # stack-overflow:
+  # linkedin:
+  # others:
+  rss: /atom.xml
+# friends
+friends:
+  #friendA: //www.baidu.com
+  #friendB: //www.google.com
+  # friendC :
+about:
+  enable: true
+  image: '/intro/about-page.jpg'
+
+# ========== Site ========== #
+# title of the site
+SEO_title: XinHong's Blog
+# main title
+main_title: XinHong's Blog.
+# subtitle
+subtitle: It's time to show my real skill.
+# site haeder image
+site_header_image: 'http://oumn0o088.bkt.clouddn.com/intro-desktop.jpg'
+# post haeder image
+post_header_image: 'http://oumn0o088.bkt.clouddn.com/post-bg.jpg'
+# 404 image
+_404_image: 'http://oumn0o088.bkt.clouddn.com/404.jpg'
+
+
+# ========== Comment ========== #
+# Fill in the field to enable the corresponding comment plugin
+# If you want to add other comment plugin, edit in "custom.ejs"
+comment:
+  # livere  site: https://livere.com/
+  livere_uid:
+  # disqus  site: https://disqus.com/
+  disqus_shortname:
+  # changyan  site: http://changyan.kuaizhan.com/
+  changyan_appid:
+  changyan_conf:
+  # gitment  site: https://github.com/imsun/gitment
+  gitment_owner:
+  gitment_repo:
+  gitment_client_id:
+  gitment_client_secret:
+  # youyan  site: http://www.uyan.cc/
+  youyan_uid:
+
+# ========== Analytics ========== #
+# Busuanzi pv Analytics
+busuanzi: false
+# Baidu analytics
+baidu_analytics:
+# Google analytics
+google_analytics:
+# CNZZ analytics
+CNZZ_analytics:
+
+# ========== Others ========== #
+# favicon
+favicon: /assests/favicon.ico
+# truncate length (the default is 300)
+truncate_length:
+# enable toc
+toc: true
