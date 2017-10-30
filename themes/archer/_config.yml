@@ -7,7 +7,7 @@ author: XinHong
 signature: Love life
 # SNS
 social:
-  email: wshx1938@163.com
+  email: wshx1938@gmail.com
   github: //github.com/AdvancedCat
   weibo:
   # zhihu:
@@ -32,6 +32,8 @@ about:
 SEO_title: XinHong's Blog
 # main title
 main_title: XinHong's Blog.
+# home link title
+home_link_title: Home
 # subtitle
 subtitle: It's time to show my real skill.
 # site haeder image
