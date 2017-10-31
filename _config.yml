@@ -96,3 +96,10 @@ jsonContent:
 about:
   enable: true
   image: '/intro/about-page.jpg'
+
+ignore: [
+  '**/themes/**/node_modules/**', 
+  '**/themes/**/node_modules', 
+  '**/themes/**/.git', 
+  '**/themes/**/.git/**'
+]
