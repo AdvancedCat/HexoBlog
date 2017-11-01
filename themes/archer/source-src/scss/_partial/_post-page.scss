@@ -208,7 +208,7 @@
     position: absolute;
     top: 50vh;
     width: 22%;
-    right: 1%;
+    left: 2%;
     max-width: calc((100% - 42.8125rem - 4rem) / 2);
     z-index: 9999;
     margin: calc(#{$header-height} + 1rem) 0 0 0;
@@ -255,7 +255,7 @@
 }
 
 .toc-slide {
-    transform: translate3d(150px, 0, 0);
+    transform: translate3d(-150px, 0, 0);
 }
 
 .toc-hide {
