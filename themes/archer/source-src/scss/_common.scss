@@ -24,7 +24,7 @@ body {
 }
 
 .wrapper-show-sidebar {
-    transform: translate3d(150px, 0, 0);
+    transform: translate3d(-150px, 0, 0);
 }
 
 .main {
@@ -71,7 +71,7 @@ li {
 // ========== back top ========== //
 .back-top {
     position: fixed;
-    left: 1rem;
+    right: 1rem;
     bottom: 1rem;
     z-index: 999;
     opacity: 0;

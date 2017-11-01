@@ -14,7 +14,7 @@
 }
 
 .header-slide {
-    transform: translate3d(150px, 0, 0);
+    transform: translate3d(-150px, 0, 0);
 }
 
 // ========== header toggle (only take effect in post page) ========== //
@@ -80,7 +80,7 @@
 // ========== header sidebar menu ========== //
 .header-sidebar-menu {
     position: absolute;
-    left: 1rem;
+    right: 1rem;
     top: 50%;
     border: 2px solid #fff;
     border-radius: 2px;
@@ -100,6 +100,9 @@
         transform: translate(0, -50%);
     }
 }
+.icon-font{
+    font-family: 'iconfont-archer';
+}
 
 .header-sidebar-menu-black {
     border-color: #000;
@@ -114,7 +117,7 @@
 // ========== home page link ========== //
 .home-link {
     position: absolute;
-    right: 2.5rem;
+    left: 2.5rem;
     top: 50%;
     transform: translate(0, -50%);
     font-family: $header-title-font-family;
