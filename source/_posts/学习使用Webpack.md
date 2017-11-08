@@ -249,3 +249,7 @@ module.exports = config;
 ## 常用的Plugin
 html-webpack-plugin
 clean-webpack-plugin
+webpack-dev-server
+webpack-dev-middleware
+webpack-hot-middleware
+uglifyjs-webpack-plugin
