@@ -1,3 +1,8 @@
+---
+title: 学习使用Webpack
+date: 2017-11-08 10:10:31
+tags: ['Javascript','webpack']
+---
 
 今天抽了点时间详细去学习一下使用Webpack，以前仅仅是停留在使用层面上。
 
@@ -99,3 +104,26 @@ const config = {
 第二种是webpack最主要entry的配置方式，配合outpu属性可以自定义打包文件的名称
 
 ## output属性
+output接受对象，分别制定打包文件的文件名和存放路径.
+output与entry配合使用，如果entry使用的第一种方法，那么output则是这样：
+```js
+const config = {
+  output: {
+    filename: 'bundle.js',
+    path: '/home/proj/public/assets'
+  }
+};
+```
+第二种方法对应：
+```js
+{
+  entry: {
+    app: './src/app.js',
+    search: './src/search.js'
+  },
+  output: {
+    filename: '[name].js',
+    path: __dirname + '/dist'
+  }
+}
+```
