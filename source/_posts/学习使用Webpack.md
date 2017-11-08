@@ -80,7 +80,7 @@ webpack hello.js hello.bundle.js
 webpack命令内置了很多的选项，有兴趣可以敲击`webpack --help`查看。
 
 # webpack.config.js
-webpack当配合配置文件一起使用，才能真正发挥实力，因此我们重点学习一下config文件如何配置。
+webpack当配合配置文件一起使用，才能真正发挥实力，因此我们重点学习一下config文件如何[配置](https://webpack.js.org/configuration/)。
 
 ## entry属性
 entry有两种方式指定
@@ -167,6 +167,46 @@ module: {
   }
 ```
 更多loader的配置方式，可以查看[这里](https://webpack.js.org/concepts/loaders/#using-loaders)
+
+看一个简单的例子
+我们的代码是用ES6写的，但代码运行在ES5环境中，因此需要将ES6语法的代码翻译为ES5，我们需要`babel-loader`的帮助。
+填写配置文件：
+```js
+const path = require('path')
+
+module.exports = {
+    entry: './src/js/main.js',
+    output:{
+        filename: 'bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules:[
+            {
+                test: /\.js$/,
+                use: {
+                    loader: 'babel-loader',
+                    options:{
+                        presets: ['es2015']
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+上面代码中，我们配置了babel的presets为`es2015`，我们需要安装一些插件：
+```bash
+npm install babel-core babel-loader babel-preset-es2015
+```
+如果不希望在配置文件中填写options，也可以在根目录下新建一个`.babelrc`文件，内容如下：
+```js
+{
+  "presets": [
+    "es2015"
+  ]
+}
+```
 
 ## plugin属性
 plugin的角色更多是后处理，帮助用户进一步操作预处理后的文件。
