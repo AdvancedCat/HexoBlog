@@ -74,3 +74,28 @@ webpack命令内置了很多的选项，有兴趣可以敲击`webpack --help`查
 
 # webpack.config.js
 webpack当配合配置文件一起使用，才能真正发挥实力，因此我们重点学习一下config文件如何配置。
+
+## entry属性
+entry有两种方式指定
+1. `entry: string|Array<string>`
+```js
+const config = {
+  entry: './path/to/my/entry/file.js'
+};
+
+module.exports = config;
+```
+如果你的项目中需要的打包的资源并不复杂，仅有若干个资源，那么使用第一种可以快速构建应用。
+
+2. `entry: {[entryChunkName: string]: string|Array<string>}`
+```js
+const config = {
+  entry: {
+    app: './src/app.js',
+    vendors: './src/vendors.js'
+  }
+};
+```
+第二种是webpack最主要entry的配置方式，配合outpu属性可以自定义打包文件的名称
+
+## output属性
