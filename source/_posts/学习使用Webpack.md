@@ -55,3 +55,22 @@ module.exports = config;
 mkdir webpacktest & cd webpacktest
 npm install --save-dev webpack
 ```
+
+现在假设你在`webpacktest`文件夹有一个`hello.js`文件，你写了几行代码:
+```js
+function sayHello(){
+    console.log('Hello world')
+}
+```
+让我们在终端运行一下webpack
+```js
+webpack hello.js hello.bundle.js
+```
+可以在终端上看到如下提示：
+![](./img/WX20171108-150828@2x.png)
+说明webpack已经打包成功，它会在当前目录下生成一个新的文件`hello.bundle.js`文件。
+
+webpack命令内置了很多的选项，有兴趣可以敲击`webpack --help`查看。
+
+# webpack.config.js
+webpack当配合配置文件一起使用，才能真正发挥实力，因此我们重点学习一下config文件如何配置。
