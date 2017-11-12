@@ -184,3 +184,5 @@ function multiNum(){
 }
 ```
 
+
+针对解决JS计算精度的问题，我特地写了一个专门解决这些问题的函数库。可以访问我的[Github](https://github.com/AdvancedCat/Fixed-Number)项目仓库进一步查看。
