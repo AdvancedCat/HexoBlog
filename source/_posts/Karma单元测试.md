@@ -19,7 +19,7 @@ npm i -g karma-cli
 
 2.项目安装相关依赖
 ```js
-npm i -D karma jasmine-core karma-jasmine karma-coverage
+npm i -D karma jasmine-core karma-jasmine
 ```
 
 # 自动化单元测试
@@ -89,6 +89,7 @@ module.exports = function(config) {
     concurrency: Infinity
   })
 }
+
 
 ```
 
