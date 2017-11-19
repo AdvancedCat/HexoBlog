@@ -94,3 +94,6 @@ module.exports = function(config) {
 ```
 
 之后再在根目录下运行`karma start`,karma会自动运行起Chrome浏览器，并在终端中输出测试结果。
+
+# 常见问题
+1.由于对mocha和chai比较熟，所以用了这两个测试框架。测试异步代码时，`done`和`promise`最好不要混用
