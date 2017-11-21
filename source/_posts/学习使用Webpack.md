@@ -26,6 +26,7 @@ loader的工作像是预处理(pre-handle)，将源文件转换为js文件，或
 Plugin与Loader主要区别在于，loader仅用于如何处理资源，比如讲less编写的样式转换为css格式的样式。
 plugin则帮助用户进一步处理资源，比如将经loader处理后的资源压缩处理或混淆处理等
 plugin的工作像后处理(post-handle)，将js文件进一步处理（压缩等）
+sss
 
 我们来看看完整的webpack.config.js文件：
 ```js
