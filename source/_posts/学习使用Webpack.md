@@ -14,19 +14,19 @@ webpack之所以如此受欢迎，因为以下三个特点：
 2.Loader
 3.Plugins
 
-webpack中主要有四个概念，只要掌握这四个概念，基本可以学会使用webpack
+webpack中主要有四个核心概念，只要掌握这四个概念，基本可以学会使用webpack
 * Entry
-Entry告知webpack应该从哪个脚本文件开始构建，进而构建依赖图
+  Entry告知webpack应该从哪个脚本文件开始构建，进而构建依赖图
 * Output
-Output会告知webpack应该将打包好的文件放到哪个文件夹中以及如何命名它们
+  Output会告知webpack应该将打包好的文件放到哪个文件夹中以及如何命名它们
 * Loader
-webpack本身只会处理javascript文件，指定相关loader会帮助webpack去处理其他的资源，如图片、样式等
-loader的工作像是预处理(pre-handle)，将源文件转换为js文件，或将图片转换base64编码格式等
+  webpack本身只会处理javascript文件，指定相关loader会帮助webpack去处理其他的资源，如图片、样式等
+  loader的工作像是预处理(pre-handle)，将源文件转换为js文件，或将图片转换base64编码格式等
 * Plugin
-Plugin与Loader主要区别在于，loader仅用于如何处理资源，比如讲less编写的样式转换为css格式的样式。
-plugin则帮助用户进一步处理资源，比如将经loader处理后的资源压缩处理或混淆处理等
-plugin的工作像后处理(post-handle)，将js文件进一步处理（压缩等）
-sss
+  Plugin与Loader主要区别在于，loader仅用于如何处理资源，比如讲less编写的样式转换为css格式的样式。
+  plugin则帮助用户进一步处理资源，比如将经loader处理后的资源压缩处理或混淆处理等
+  plugin的工作像后处理(post-handle)，将js文件进一步处理（压缩等）
+  sss
 
 我们来看看完整的webpack.config.js文件：
 ```js
@@ -54,6 +54,12 @@ const config = {
 module.exports = config;
 ```
 可以看出，loader是不需要引进的，而plugin则需要通过require引入
+
+
+
+# Webpack原理
+
+
 
 # Webpack Cli
 首先通过webpack命令行来看看它可以做什么。
