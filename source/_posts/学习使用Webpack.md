@@ -59,6 +59,17 @@ module.exports = config;
 
 # Webpack原理
 
+从启动webpack构建到输出结果经历了一系列过程，它们是：
+
+1. 解析webpack配置参数，合并从shell传入和`webpack.config.js`文件里配置的参数，生产最后的配置结果。
+2. 注册所有配置的插件，好让插件监听webpack构建生命周期的事件节点，以做出对应的反应。
+3. 从配置的`entry`入口文件开始解析文件构建AST语法树，找出每个文件所依赖的文件，递归下去。
+4. 在解析文件递归的过程中根据文件类型和loader配置找出合适的loader用来对文件进行转换。
+5. 递归完后得到每个文件的最终结果，根据`entry`配置生成代码块`chunk`。
+6. 输出所有`chunk`到文件系统。
+
+需要注意的是，在构建生命周期中有一系列插件在合适的时机做了合适的事情，比如`UglifyJsPlugin`会在loader转换递归完后对结果再使用`UglifyJs`压缩覆盖之前的结果。
+
 
 
 # Webpack Cli
@@ -249,8 +260,15 @@ const config = {
 module.exports = config;
 ```
 
-
 由于webpack.config.js本身是一个可引入的脚本，因此它本身用什么语言编写无关紧要，即可以用TypeScript或CoffeeScript编写，只要能正确被webpack识别即可。
+
+
+
+# 某些困惑点
+
+这篇来自Medium的[Webpack — The Confusing Parts](https://medium.com/@rajaraodv/webpack-the-confusing-parts-58712f8fcad9)文章很好介绍了webpack中的一些困惑点，[这篇文章](https://github.com/chemdemo/chemdemo.github.io/issues/13)是中文翻译，供无法翻墙的朋友看看。建议看原文，写的通俗易懂。
+
+
 
 
 # 常用的Plugin
