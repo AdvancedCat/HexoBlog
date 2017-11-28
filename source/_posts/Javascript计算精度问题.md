@@ -24,6 +24,7 @@ function accAdd(arg1,arg2){
     return (arg1*m+arg2*m)/m;
 }
 
+
 //减法函数
 function accSub(arg1,arg2){
      var r1,r2,m,n;
