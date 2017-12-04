@@ -28,6 +28,7 @@ webpack中主要有四个核心概念，只要掌握这四个概念，基本可�
   plugin的工作像后处理(post-handle)，将js文件进一步处理（压缩等）
   sss
 
+
 我们来看看完整的webpack.config.js文件：
 ```js
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
