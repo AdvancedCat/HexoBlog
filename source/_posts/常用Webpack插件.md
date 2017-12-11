@@ -56,7 +56,7 @@ const config = {
 
 安装
 ```js
-npm install --save-dev extract-text-webpack-plugin
+npm install extract-text-webpack-plugin --save-dev 
 ```
 
 用法
