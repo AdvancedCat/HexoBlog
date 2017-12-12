@@ -1,7 +1,7 @@
 ---
 title: 读懂package.json
 date: 2017-12-12 09:57:34
-tags:
+tags: ['Node']
 ---
 
 作为一个前端工程师，不断地去学习前端新技术是必须的。在这过程中，不断接触开源项目是必不可少的。github上的开源项目，我们发现大多数项目下都有一个package.json文件，package.json存储的是一个严格的json对象。那么今天分析一下package.json中的字段意义。
