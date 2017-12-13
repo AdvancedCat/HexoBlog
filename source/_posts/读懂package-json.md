@@ -73,6 +73,7 @@ scripts包含了在项目开发过程会使用的脚本命令，我们可以运�
 
 ### dependencies
 **For production**: 指明你项目生产环境时的依赖，即别人使用你的项目代码时必须依赖某些插件方可使用。在这里需要特别说明一下关于依赖项目version的范围规则：
+> 版本号满足范式： major.minor.patch 即 主版本.次版本.补丁
 
 * version :必须满足规定的版本
 * \>version  :大于某个版本
