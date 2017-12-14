@@ -124,6 +124,44 @@ export default function createStore(reducer, preloadedState, enhancer) {
 但是随着应用越来越大，你可能有很多action，如果都放入一个reducer中，显然变得不可维护。于是期望可以拆分reducer，每个reducer仅关心store tree中某个分支（即state中部分key），且仅返回这部分分支内容。其他分支内容你并不关心。
 为了解决这个问题，Reudex提供了combineReducers函数。
 combineReducers接受一个reducers对象，每一个key对应了一个reducer，这个key之后也将反应到state中。
-比如你有一个postListReducer，这个reducer专门用来处理博客列表相关的操作（增删改查），将``
+比如你有一个postListReducer，这个reducer专门用来处理博客列表相关的操作（增删改查），将`{postList: postListReducer}`传给combineReducers，你会得到`{postList: []}`的store。而postListReducer也仅能处理postList部分的数据，不用关心其他字段。
 
-如果你需要将reducer拆分，比如
+源码如下（有删减）：
+```js
+/**
+ * 将包含多个reducer函数的对象转换为一个reducer函数
+ * @param  {[type]} reducers [description]
+ * @return {[type]}          [description]
+ */
+export default function combineReducers(reducers) {
+  const reducerKeys = Object.keys(reducers)
+  const finalReducers = {}
+  // 将有效的reducer汇集到一个最终对象中
+  for (let i = 0; i < reducerKeys.length; i++) {
+    const key = reducerKeys[i]
+
+    if (typeof reducers[key] === 'function') {
+      finalReducers[key] = reducers[key]
+    }
+  }
+  const finalReducerKeys = Object.keys(finalReducers)
+
+  // 最终返回一个reducer函数，接受state和action参数
+  // 它会遍历每一个之前传入的reducer，每个reducer仅会改变对应key的state
+  return function combination(state = {}, action) {
+
+    let hasChanged = false
+    const nextState = {}
+    for (let i = 0; i < finalReducerKeys.length; i++) {
+      const key = finalReducerKeys[i]
+      const reducer = finalReducers[key]
+      const previousStateForKey = state[key]
+      const nextStateForKey = reducer(previousStateForKey, action)
+      // 每个reducer只管自己的一亩三分地
+      nextState[key] = nextStateForKey  // 计算出的state会放入对应key中去
+      hasChanged = hasChanged || nextStateForKey !== previousStateForKey  // 这里应对可能reducer返回原来的state
+    }
+    return hasChanged ? nextState : state
+  }
+}
+```
