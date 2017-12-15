@@ -225,3 +225,29 @@ export default function bindActionCreators(actionCreators, dispatch) {
 }
 ```
 这段源码是比较简单的，大致意图是进一步封装actionCreator函数，通过闭包的形式将dispatch绑定到actionCreator中。从而使子组件不需要关心dispatch参数，直接分发action
+
+
+## applyMiddleware
+Middleware 可以让你包装 store 的 dispatch 方法来达到你想要的目的。同时， middleware 还拥有“可组合”这一关键特性。多个 middleware 可以被组合到一起使用，形成 middleware 链。其中，每个 middleware 都不需要关心链中它前后的 middleware 的任何信息。
+源码如下：
+```js
+export default function applyMiddleware(...middlewares) {
+  return (createStore) => (...args) => {
+    const store = createStore(...args)
+    let dispatch = store.dispatch
+    let chain = []
+
+    const middlewareAPI = {
+      getState: store.getState,
+      dispatch: (...args) => dispatch(...args)
+    }
+    chain = middlewares.map(middleware => middleware(middlewareAPI))
+    dispatch = compose(...chain)(store.dispatch)
+
+    return {
+      ...store,
+      dispatch
+    }
+  }
+}
+```
