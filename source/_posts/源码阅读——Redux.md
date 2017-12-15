@@ -176,3 +176,52 @@ export default function combineReducers(reducers) {
 this.props.dispatch(action)
 ```
 这样做有一个问题，如果子组件嵌套较深，那么每个组件我都要传一个dispatch下去，我们希望使用redux时透明的，能否将dispatch保存在actioncreator中，当分发action时自动带出dispatch。答案是可以的，这里我们需要借助bindActionCreators函数来绑定dispatch
+```js
+render(){
+    let {todos, dispatch} = this.props
+    /**
+     * {
+     *    addTodo: Function,
+     *    removeTodo: Function
+     * }
+     */
+    let boundActionCreators = bindActionCreators(TodoActionCreators, dispatch)
+
+    return(
+        <TodoList todos={todos} {...boundActionCreators} />
+    )
+}
+```
+上例摘自[Redux文档](http://cn.redux.js.org/docs/api/bindActionCreators.html)中
+在实际应用，我么也可以用的更灵活一些，比如借助`react-redux`中connect方法
+
+源码如下：
+```js
+function bindActionCreator(actionCreator, dispatch) {
+  return function() { return dispatch(actionCreator.apply(this, arguments)) }
+}
+
+/**
+ * 将dispatch绑定到actionCreator函数中
+ * @param  {[type]} actionCreators actionCreator函数或者actionCreator函数对象
+ * @param  {[type]} dispatch       [description]
+ * @return {[type]}                [description]
+ */
+export default function bindActionCreators(actionCreators, dispatch) {
+  if (typeof actionCreators === 'function') {
+    return bindActionCreator(actionCreators, dispatch)
+  }
+
+  const keys = Object.keys(actionCreators)
+  const boundActionCreators = {}
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i]
+    const actionCreator = actionCreators[key]
+    if (typeof actionCreator === 'function') {
+      boundActionCreators[key] = bindActionCreator(actionCreator, dispatch)
+    }
+  }
+  return boundActionCreators
+}
+```
+这段源码是比较简单的，大致意图是进一步封装actionCreator函数，通过闭包的形式将dispatch绑定到actionCreator中。从而使子组件不需要关心dispatch参数，直接分发action
