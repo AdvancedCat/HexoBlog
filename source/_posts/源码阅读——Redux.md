@@ -165,3 +165,14 @@ export default function combineReducers(reducers) {
   }
 }
 ```
+
+## bindActionCreators
+在你使用Redux后，我们可以通过`store.dispatch(ActionCreator(...))`的形式去分发由ActionCreator生成的action。
+我们知道，React很适合组件式开发，那么如果我们需要在子组件中去分发action的时候该如何做呢？可以这样：
+```js
+<Child {...data} dispatch={store.dispatch}></Child>
+
+//在组件内部我们可以这样调用了
+this.props.dispatch(action)
+```
+这样做有一个问题，如果子组件嵌套较深，那么每个组件我都要传一个dispatch下去，我们希望使用redux时透明的，能否将dispatch保存在actioncreator中，当分发action时自动带出dispatch。答案是可以的，这里我们需要借助bindActionCreators函数来绑定dispatch
