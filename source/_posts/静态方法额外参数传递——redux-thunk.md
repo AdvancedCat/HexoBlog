@@ -7,6 +7,9 @@ tags:
 今天来看一段仅有14行的代码，它在github上获得了7200+ star。它就是[redux-thunk](https://github.com/gaearon/redux-thunk)
 redux-thunk的作用是为redux提供thunk中间件，使得延迟调用dispatch，完成异步请求等功能。
 
+> 何为thunk?
+thunk是一种包裹一些稍后执行的表达式的函数
+
 # 源码
 先感受一下这14行的代码(v2.0)：
 ```js
@@ -43,3 +46,39 @@ function fetchUser(id) {
   }
 }
 ```
+
+
+# 用法
+react-redux需要配合redux的applyMiddleware一起使用，因此需要先看一下applyMiddleware的源码：
+```js
+export default function applyMiddleware(...middlewares) {
+  return (createStore) => (...args) => {
+    const store = createStore(...args)
+    let dispatch = store.dispatch
+    let chain = []
+
+    const middlewareAPI = {
+      getState: store.getState,
+      dispatch: (...args) => dispatch(...args)
+    }
+    chain = middlewares.map(middleware => middleware(middlewareAPI))
+    dispatch = compose(...chain)(store.dispatch)
+
+    return {
+      ...store,
+      dispatch
+    }
+  }
+}
+```
+其中compose的作用是这样的：
+```js
+compose(a,b,c)(args) ==> a(b(c(args)))
+```
+applyMiddleware使用方法如下：
+```js
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore)
+const store = createStoreWithMiddleware(reducer)
+```
+配合双方的源码来看，thunk作为中间件，接受由上一个中间返回的dispatch,若只有thunk一个中间件的话，`next`即为`store.dispatch`
+一旦应用中分发了action，必定会一次执行每一个中间件。这样thunk就可以依据传进来的action的类别进行区分了，从而支持异步操作
