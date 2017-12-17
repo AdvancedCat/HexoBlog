@@ -54,6 +54,7 @@ const config = {
 
 将bundle中的文本单独抽离为独立的文件.
 
+
 安装
 ```js
 npm install extract-text-webpack-plugin --save-dev 
