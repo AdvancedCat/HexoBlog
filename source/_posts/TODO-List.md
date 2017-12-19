@@ -1,7 +1,7 @@
 ---
 title: TODO List
 date: 2017-12-18 17:06:58
-tags:
+tags: ['TODO']
 visible: false
 ---
 
