@@ -135,8 +135,6 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 ```
 ![](//css-tricks.com/wp-content/uploads/2014/05/align-self.svg)
 
-
-
 # 浏览器兼容性
 下图是从CANIUSE中截取的Flexbox在各个浏览器兼容性情况：
 ![](/img/flexbox/Flexbox浏览器兼容性.png)
@@ -146,9 +144,9 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 同时针对不同内核需要书写属性前缀：
 ```css
 -webkit-
+-mos-
 -ms-
 ```
-
 
 # 参考资料
 * [W3C-Flex](https://www.w3.org/TR/css-flexbox-1/) : CSS Flexible Box Layout Module Level 1
