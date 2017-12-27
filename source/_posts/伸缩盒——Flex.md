@@ -113,3 +113,44 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
     flex-shrink: <number>; // default 1
 }
 ```
+
+## flex-basis
+`flex-basis`默认是auto也就是根据可伸缩比率计算出剩余空间的分布之前，伸缩项目主轴长度的起始数值。
+若在「flex」缩写省略了此部件，则「flex-basis」的指定值是长度零
+
+## flex
+`flex`属性是以上三个属性（flex-grow, flex-shrink, flex-basis）的简写
+```css
+.flex-item{
+    flex: none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ];
+}
+```
+
+## align-self
+`align-self`用来在单独的伸缩项目上覆写默认的对齐方式，这个属性是用来覆盖伸缩容器属性align-items对每一行的对齐方式。也就是说在默认的情况下这两个值是相等的。
+```css
+.flex-item {
+  align-self: auto | flex-start | flex-end | center | baseline | stretch;
+}
+```
+![](//css-tricks.com/wp-content/uploads/2014/05/align-self.svg)
+
+
+
+# 浏览器兼容性
+下图是从CANIUSE中截取的Flexbox在各个浏览器兼容性情况：
+![](/img/flexbox/Flexbox浏览器兼容性.png)
+
+从图中看出目前flexbox在PC端主流浏览器中支持度较高，IE系除了10、11部分支持外，其他均不支持。
+在移动端个别浏览器不支持最新flex语法，需要使用旧版语法。
+同时针对不同内核需要书写属性前缀：
+```css
+-webkit-
+-ms-
+```
+
+
+# 参考资料
+* [W3C-Flex](https://www.w3.org/TR/css-flexbox-1/) : CSS Flexible Box Layout Module Level 1
+* [Flex guide](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) : A Complete Guide to Flexbox
+* [MDN - Flex](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Flexible_Box_Layout/%E5%BC%B9%E6%80%A7%E6%A1%86%E7%9A%84%E9%AB%98%E7%BA%A7%E5%B8%83%E5%B1%80) : 使用弹性盒子进行高级布局
