@@ -26,6 +26,7 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 * row-reverse: 主轴的方向为从右至左
 * column: 主轴方向从上至下
 * column-reverse: 主轴方向从下至上
+
 ![](//css-tricks.com/wp-content/uploads/2013/04/flex-direction2.svg)
 
 ## flex-wrap
@@ -33,6 +34,7 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 * flex-wrap:nowrap;伸缩容器单行显示，默认值；
 * flex-wrap:wrap;伸缩容器多行显示；伸缩项目每一行的排列顺序由上到下依次。
 * flex-wrap:wrap-reverse;伸缩容器多行显示，但是伸缩项目每一行的排列顺序由下到上依次排列。
+
 ![](//css-tricks.com/wp-content/uploads/2014/05/flex-wrap.svg)
 
 ## flex-flow
@@ -58,9 +60,8 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 伸缩项目平均的分配在主轴上面，并且第一个元素和主轴的起点紧挨，最后一个元素和主轴上终点紧挨，中间剩下的伸缩项目在确保两两间隔相等的情况下进行平分。
 * justify-content:space-around;
 伸缩项目平均的分布在主轴上面，并且第一个元素到主轴起点距离和最后一个元素到主轴终点的距离相等，且等于中间元素两两的间距的一半。完美的平均分配，这个布局在阿里系中很常见。
-<img src="https://cdn.css-tricks.com/wp-content/uploads/2013/04/justify-content-2.svg" alt="" style="
-    width: 50%;
-">
+
+<img src="https://cdn.css-tricks.com/wp-content/uploads/2013/04/justify-content-2.svg" alt="">
 
 ## align-items
 `align-items`用来定义Flex项目在侧轴上的对齐方式
@@ -74,6 +75,7 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 如果伸缩项目的行内轴与侧轴为同一条，则该值与[flex-start]等效。 其它情况下，该值将参与基线对齐。
 * align-items:stretch;
 伸缩项目拉伸填充整个伸缩容器。此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。
+
 ![](https://cdn.css-tricks.com/wp-content/uploads/2014/05/align-items.svg)
 
 ## align-content
@@ -82,4 +84,32 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 * align-content: stretch;
 默认值,各行将会伸展以占用剩余的空间。
 * 其他可以参考[justify-content]用法
+
 ![](//css-tricks.com/wp-content/uploads/2013/04/align-content.svg)
+
+# Flex项目
+## order
+`order`属性可以指定Flex项目在容器中排列顺序。默认情况下，Flex项目会按照自身在文档流中顺序显示。使用`order`可以改变Flex项目的顺序。
+```css
+.flex-item{
+    order: <integer>; // default is 0
+}
+```
+<img src="//css-tricks.com/wp-content/uploads/2013/04/order-2.svg" alt="">
+
+## flex-grow
+`flex-grow`主要用来决定伸缩容器剩余空间（正值）按比例应扩展多少空间
+```css
+.flex-item{
+    flex-grow: <number>; // default 0
+}
+```
+![](//css-tricks.com/wp-content/uploads/2014/05/flex-grow.svg)
+
+## flex-shrink
+`flex-shrink`主要用来决定当Flex项目累加长度唱过容器长度时，如何对Flex项目进行收缩处理.
+```css
+.flex-item{
+    flex-shrink: <number>; // default 1
+}
+```
