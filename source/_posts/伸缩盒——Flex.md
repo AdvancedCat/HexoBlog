@@ -29,6 +29,7 @@ Flex有比较多的属性，以下思维导图罗列2013最新版本的属性写
 
 ![](//css-tricks.com/wp-content/uploads/2013/04/flex-direction2.svg)
 
+
 ## flex-wrap
 `flex-wrap`属性控制伸缩盒是单行还是多行的，也决定了换行时侧轴的方向（新的一行的堆放方向）
 * flex-wrap:nowrap;伸缩容器单行显示，默认值；

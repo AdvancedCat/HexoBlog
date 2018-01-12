@@ -13,6 +13,8 @@ tags: ['TODO']
 * 探究多个setTimeout产生的微任务先后
 * H5新特性
 * XMLHttpRequest
+* 做一个演示BFC的小应用
+* Array.prototype.sort稳定性分析，以及在不同浏览器下表现如何
 
 
 # 已解决的课题
