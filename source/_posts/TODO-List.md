@@ -16,7 +16,20 @@ tags: ['TODO']
 * 做一个演示BFC的小应用
 * Array.prototype.sort稳定性分析，以及在不同浏览器下表现如何
 
+# 待了解
+
+* RAIL  谷歌网页理论
+* [FastClick](https://github.com/ftlabs/fastclick)  移动端300ms延迟的问题
+* 移动端事件节流，避免重复调用，设置16ms间隔，避免移动端页面卡顿
+* Chrome-dev Performance
+* 协议缓存
+* Cookie学问
+* 百度m站， localStorage缓存静态资源
+
 
 # 已解决的课题
 * 关于Flex的一些概念 [传送门](/2017/12/26/伸缩盒——Flex/)
 * CSS Modules [传送门](/2017/12/27/CSS-Modules/)
+
+
+
