@@ -15,6 +15,7 @@ tags: ['TODO']
 * XMLHttpRequest
 * 做一个演示BFC的小应用
 * Array.prototype.sort稳定性分析，以及在不同浏览器下表现如何
+* Hexo支持的Markdown语法
 
 # 待了解
 
