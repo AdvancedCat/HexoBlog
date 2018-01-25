@@ -15,6 +15,8 @@ tags: ['TODO']
 * XMLHttpRequest
 * 做一个演示BFC的小应用
 * Array.prototype.sort稳定性分析，以及在不同浏览器下表现如何
+* manifest在webpack打包中的作用
+* GraphQL
 
 
 # 待了解
@@ -26,12 +28,10 @@ tags: ['TODO']
 * 协议缓存
 * Cookie学问
 * 百度m站， localStorage缓存静态资源
+*  SOA 架构
 
 
 # 已解决的课题
 * 关于Flex的一些概念 [传送门](/2017/12/26/伸缩盒——Flex/)
 * CSS Modules [传送门](/2017/12/27/CSS-Modules/)
 * Hexo支持的Markdown语法 [传送门](/2017/01/28/Markdown语法-Hexo)
-
-
-
