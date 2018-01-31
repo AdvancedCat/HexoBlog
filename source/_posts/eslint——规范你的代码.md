@@ -96,6 +96,18 @@ ESLint 默认使用`Espree`作为其解析器，你可以在配置文件中指�
 
 > 这个值得研究一下，甚至可以自己写一个解析器。这是了解解析器的切入口
 
+* parserOptions
+ESLint 允许你指定你想要支持的 JavaScript 语言选项。默认情况下，ESLint 支持 ECMAScript 5 语法。你可以覆盖该设置启用对 ECMAScript 其它版本和 JSX 的支持。
+```js
+"parserOptions": {
+    "ecmaVersion": 6,   // 支持ES6
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+}
+```
+
 * rules
 当我们配置`eslint:recommended`时，eslint会帮助默认开启一些规则，比如`no-console`指定在代码中不可以使用`console`。
 此时，我们期望在开发模式下跳过校验，而在生产环境下开启校验，如上配置即可。多种配置方式：

@@ -2,6 +2,7 @@
 title: TODO List
 date: 2017-12-18 17:06:58
 tags: ['TODO']
+visible: hide
 ---
 
 # 待研究的课题
@@ -35,4 +36,5 @@ tags: ['TODO']
 # 已解决的课题
 * 关于Flex的一些概念 [传送门](/2017/12/26/伸缩盒——Flex/)
 * CSS Modules [传送门](/2017/12/27/CSS-Modules/)
-* Hexo支持的Markdown语法 [传送门](/2017/01/28/Markdown语法-Hexo)
+* Hexo支持的Markdown语法 [传送门](/2018/01/28/Markdown语法-Hexo)
+* ESLint [传送门](/2018/01/31/eslint——规范你的代码)
