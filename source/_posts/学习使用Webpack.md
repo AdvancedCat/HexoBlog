@@ -14,6 +14,9 @@ webpack之所以如此受欢迎，因为以下三个特点：
 2.Loader
 3.Plugins
 
+webpack的本质其实就是
+> webpack是一个打包模块化js的工具，可以通过loader转换文件，通过plugin扩展功能。
+
 
 
 webpack中主要有四个核心概念，只要掌握这四个概念，基本可以学会使用webpack
