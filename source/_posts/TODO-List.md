@@ -19,6 +19,7 @@ visible: hide
 * manifest在webpack打包中的作用
 * GraphQL
 * nginx
+* web服务器对于静态文件的处理流程
 
 
 # 待了解
