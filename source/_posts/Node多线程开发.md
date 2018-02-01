@@ -78,7 +78,7 @@ if (cluster.isMaster) {
 ### 实验结果
 本地电脑——四核处理器
 
-1. node程序单线程，pm2单线程
+* 第一组：node程序单线程，pm2单线程
 单个线程处理了100个请求
 
 ```js
@@ -106,7 +106,7 @@ Percentage of the requests served within a certain time (ms)
  100%  12410 (longest request)
 ```
 
-2. node程序单线程，pm2多线程
+* 第二组：node程序单线程，pm2多线程
 每个线程处理了25个请求
 
 ```js
@@ -134,7 +134,7 @@ Percentage of the requests served within a certain time (ms)
  100%   9162 (longest request)
 ```
 
-3. node多线程，pm2单线程
+* 第三组：node多线程，pm2单线程
 每个线程处理了25个请求
 
 ```js
@@ -162,7 +162,7 @@ Percentage of the requests served within a certain time (ms)
  100%   9129 (longest request)
 ```
 
-4. node多线程，pm2多线程
+* 第四组：node多线程，pm2多线程
 每个线程处理了25个请求
 
 ```js
@@ -257,3 +257,45 @@ Percentage of the requests served within a certain time (ms)
 即便是CPU密集型运算，开启多线程后，仍然可以以较快速度完成运算并返回结果。这是V8引擎和多线程共同带来的特性。
 
 ## libuv
+
+
+## 守护你的进程
+
+### 异常捕获
+Node是单线程的，那么不可避免会出现宕机的情况。那么如何守护好进程呢？需要从错误机制上分析
+
+Node中处理事件一般会用回调来实现异步操作的流程，在同步过程中出错，node会抛出相应错误。如果此时没有捕获到这个错误，那么node就会停止运行
+
+1. Node提供捕获全局错误的方法：
+```js
+process.on('uncaughtException', function (err) {
+  //打印出错误
+  console.log(err);
+  //打印出错误的调用栈方便调试
+  console.log(err.stack)；
+});
+```
+但不提倡使用它，因为你使用它，说明你对node并不熟，哈哈。不过这是个备胎方法
+
+2. 在可能出错的地方捕获异常
+即使用`try{}catch(e){}`语法
+
+3. 中间件监听
+这里需要配合Node服务框架来完成，如`Express`,`Koa`等，有一些好用的中间件监听错误，并得到及时处理，不至于宕机
+
+### 重启服务
+当服务宕机后，可以立即重启，目前有以下工具可以使用
+
+1. [node-forever](https://github.com/foreverjs/forever)
+2. [pm2](http://pm2.keymetrics.io/)
+3. [supervisor]()
+
+
+### 日志收集
+方案：
+1. 异常捕获后，可以将错误信息存储于本地数据表中或存于文件系统中，或者通过发码实时监测
+2. 在使用重启服务工具时，本身也可以获取到相应日志用于分析。具体信息请访问官网
+
+# 扩展阅读
+* [拿什么守护你的Node.JS进程： Node出错崩溃了怎么办？](http://ourjs.com/detail/5417e6ea4f1286640f000002)
+* [关于Node进程管理器PM2使用技巧和需要注意的地方](https://github.com/jawil/blog/issues/7)
