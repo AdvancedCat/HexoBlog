@@ -1,6 +1,6 @@
 ---
 title: Manifest在webpack打包中的作用
-date: 2018-01-26 15:02:52
+date: 2017-05-26 15:02:52
 tags: [webpack]
 ---
 

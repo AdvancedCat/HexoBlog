@@ -1,6 +1,6 @@
 ---
 title: ES6——Generator函数学习笔记
-date: 2017-12-16 16:09:59
+date: 2017-11-16 16:09:59
 tags: ['ES6']
 ---
 本文是学习阮一峰的[《ECMAScript6 入门》](http://es6.ruanyifeng.com/)的学习笔记
