@@ -297,5 +297,6 @@ process.on('uncaughtException', function (err) {
 2. 在使用重启服务工具时，本身也可以获取到相应日志用于分析。具体信息请访问官网
 
 # 扩展阅读
+* [Node进程](https://github.com/DoubleSpout/threadAndPackage/blob/master/chapter.7.thread_and_process.md)
 * [拿什么守护你的Node.JS进程： Node出错崩溃了怎么办？](http://ourjs.com/detail/5417e6ea4f1286640f000002)
 * [关于Node进程管理器PM2使用技巧和需要注意的地方](https://github.com/jawil/blog/issues/7)
