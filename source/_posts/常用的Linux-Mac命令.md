@@ -103,5 +103,42 @@ en0: flags=8863<UP,BROADCAST,SMART,RUNNING,SIMPLEX,MULTICAST> mtu 1500
 	nd6 options=201<PERFORMNUD,DAD>
 	media: autoselect
 	status: active
+```
 
 inet后面即为IP地址
+
+# du
+对文件和目录的磁盘空间使用情况
+
+递归查看当前目录的文件大小（单位B）
+```shell
+du
+
+// output
+32	    ./app-broker-v5/interceptor
+57712	./app-broker-v5
+289472	.
+```
+
+以人类可理解的单位显示大小：
+```shell
+du -h
+
+// output
+ 16K	./app-broker-v5/interceptor
+ 28M	./app-broker-v5
+141M	.
+```
+
+汇总显示当前目录总大小：
+```shell
+du -sh
+
+// output
+141M  .
+```
+
+计算特定文件或文件夹大小：
+```shell
+du file_name | dir_name
+```

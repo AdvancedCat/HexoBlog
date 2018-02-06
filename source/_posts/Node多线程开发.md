@@ -288,7 +288,7 @@ process.on('uncaughtException', function (err) {
 
 1. [node-forever](https://github.com/foreverjs/forever)
 2. [pm2](http://pm2.keymetrics.io/)
-3. [supervisor]()
+3. [supervisor](http://supervisord.org/)
 
 
 ### 日志收集
