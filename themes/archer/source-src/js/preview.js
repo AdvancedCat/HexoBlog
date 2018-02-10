@@ -1,22 +1,18 @@
-import browser from './browser'
-
 var Preview = {
     initBigImg: function(){
-        if (true || !browser.versions.mobile){
-            var imgDoms = $('.post-page').find('img')
-            imgDoms.on('click', function (e) {
-                var $img = $(this),
-                    imgSrc = $img.prop('src')
+        var imgDoms = $('.post-page').find('img')
+        imgDoms.on('click', function (e) {
+            var $img = $(this),
+                imgSrc = $img.prop('src')
 
-                //onsole.log('点击了图片', imgSrc)
-                generateBigImg(imgSrc)
-            })
+            //onsole.log('点击了图片', imgSrc)
+            generateBigImg(imgSrc)
+        })
 
-            $('body').on('click', '.preview-mask', function(e){
-                var $this = $(this)
-                $this.remove()
-            })
-        }
+        $('body').on('click', '.preview-mask', function(e){
+            var $this = $(this)
+            $this.remove()
+        })
     },
     
 }
