@@ -59,6 +59,7 @@ gulp.task('dev', ['webpack', 'sass'], function () {
         proxy: 'localhost:4000'
     });
     gulp.watch(['./source-src/js/**/*.js'], ['reload-js']);
+    gulp.watch(['./source-src/js/*.js'], ['reload-js']);
     gulp.watch(['./source-src/scss/**/*.scss'], ['reload-css']);
     gulp.watch(['./layout/**/*.ejs'], ['reload-layout']);
 });

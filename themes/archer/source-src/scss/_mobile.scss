@@ -153,3 +153,11 @@
 #busuanzi_container_site_pv {
     font: 1rem $feature-font-family;
 }
+
+// 预览图片
+.preview-mask img{
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    background: #fff;
+}
