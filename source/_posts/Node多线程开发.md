@@ -47,6 +47,7 @@ app.get('/', function(req, res){
   var n = fibo(~~req.query.n || 1);//接收参数
   res.send(n.toString());
 });
+
 app.listen(8125);
 console.log('listen on 8125');
 ```
