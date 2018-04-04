@@ -106,7 +106,6 @@ function sortElements(childs, comparator){
 			)
 
 		return function(){
-
 			parentNode.insertBefore(this, nextSibling)
 			parentNode.removeChild(nextSibling)
 		}
