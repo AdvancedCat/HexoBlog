@@ -142,3 +142,17 @@ du -sh
 ```shell
 du file_name | dir_name
 ```
+
+# [sed](http://man.linuxde.net/sed)
+sed是一种流编辑器，能够配合正则表达式一起使用，功能强大
+命令格式：
+```shell
+sed [option] 'command' file''
+```
+相当于读取一个文件内容，并对每一行执行一些操作，结果会缓存在临时缓冲区中，进而通过管道流动。也可以直接编辑文件。
+例如，编辑文件中某行数据(parser.xxxx.js —> hongxin)：
+```shell
+sed -i '' "s/\(.*\)parser\.[0-9]*\.css\(.*\)/\1hongxin\2/g" file.js
+```
+
+上面`-i`会直接修改文件，`''`则是备份文件，这里没有指定说明没有备份（这并不提倡）。详见`man sed`
