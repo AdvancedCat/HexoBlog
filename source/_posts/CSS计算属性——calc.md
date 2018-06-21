@@ -9,7 +9,7 @@ calc是CSS3提出用于计算CSS属性的函数，在任何需要计算如lenght
 
 calc可以嵌套，当在calc中出现另一个calc计算函数时，可以简单认为是一个括号：
 ```css
-.a-style{
+.one-style{
     width: calc( calc(10px / 2) + 20% );  // 相当于 width: calc( ( 10px / 2 ) + 20% );
 }
 ```
