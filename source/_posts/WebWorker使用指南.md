@@ -31,7 +31,7 @@ Web Worker主要有三种：
 
 # 基本用法
 
-1. Fork一个线程
+## Fork一个线程
 使用worker最简单的方法就是new一个Worker实例：
 
 主线程代码如下：
@@ -61,7 +61,7 @@ My name is main-script.   // from worker
 Fine, my name is worker.  // from main-script
 ```
 
-2. 如何通信
+## 如何通信
 在上面示例中，我们看到了主线程和worker线程之间是如何通信的。
 在主线程中，我们可以调用worker实例的`postMessage`发送消息，`worker.addEventListener('message')`来接收消息。
 > worker.addEventListener('message')也可以写成：
@@ -69,16 +69,16 @@ Fine, my name is worker.  // from main-script
 
 同理，在worker线程中也可以使用`postMessage`和`onmessage`来收发消息。注意到，在worker中我们直接使用的是`self`代表子线程自身，即子线程的全局对象。
 
-3. 如何关闭worker
+## 关闭worker
 在主线程中，调用`worker.terminate()`关闭worker。而在worker内部，则调用`self.close`即可关闭自身。
 
-4. Worker加载脚本
+## Worker加载脚本
 Worker 内部如果要加载其他脚本，有一个专门的方法`importScripts()`.
 ```js
 importScript('script1', 'script2'); // 可加载多个脚本
 ```
 
-5. 错误处理
+## 错误处理
 主线程和worker线程都可以监听worker是否发生了错误：
 ```js
 worker.onerror = function(err){...}
@@ -89,7 +89,7 @@ worker.addEventListener('error', function(err){...})
 self.onerror or self.addEventListener('error')
 ```
 
-6. 数据通信
+## 数据通信
 主线程不光可以给worker传递基本数据类型，也可以传递数组或对象，但这种传递是通过值拷贝完成的。即worker获得的数据是原数据的深度拷贝。事实上，浏览器会先将**数据序列化**，然后将序列化后的字符串给worker，worker接收到数据后会再**反序列化**。
 
 如果传递很大，比如文件内容或一个很大的数组，序列化操作会很耗性能。为了解决这个问题，JavaScript允许主线程将二进制数据直接转移给worker，但这种转移是所有权的转移，一旦主线程将数据转移给worker后，浏览器就不能再使用这部分数据了，这是为了解决读写混乱的问题。这种转移数据的方法，叫[Transferable objects](http://w3c.github.io/html/infrastructure.html#transferable-objects)。以下方法实现数据转移：
@@ -102,7 +102,7 @@ var ab = new ArrayBuffer(1);
 worker.postMessage(ab, [ab]);
 ```
 
-# 同页面脚本
+## 同页面脚本
 通常情况下，Worker 载入的是一个单独的 JavaScript 脚本文件，但是也可以载入与主线程在同一个网页的代码。
 ```html
 <!DOCTYPE html>
@@ -116,9 +116,7 @@ worker.postMessage(ab, [ab]);
 </html>
 ```
 
-上面是一段嵌入网页的脚本，注意必须指定<script>标签的type属性是一个浏览器不认识的值，上例是app/worker。
-
-然后，读取这一段嵌入页面的脚本，用 Worker 来处理。
+上面是一段嵌入网页的脚本，注意必须指定`<script>`标签的type属性是一个浏览器不认识的值，上例是app/worker。然后，读取这一段嵌入页面的脚本，用 Worker 来处理。
 
 ```js
 var blob = new Blob([document.querySelector('#worker').textContent]);
@@ -130,11 +128,9 @@ worker.onmessage = function (e) {
 };
 ```
 
-上面代码中，先将嵌入网页的脚本代码，转成一个二进制对象，然后为这个二进制对象生成 URL，再让 Worker 加载这个 URL。这样就做到了，主线程和 Worker 的代码都在同一个网页上面。
+上面代码中，先将嵌入网页的脚本代码，转成一个二进制对象，然后为这个二进制对象生成 URL，再让 Worker 加载这个 URL。这样就做到了，主线程和 Worker 的代码都在同一个网页上面。同样的，你也可以这样：
 
-同样的，你也可以这样：
 ```js
-
 function veryExpensiveStepsInFunc(){
     addEventListener('message', function () {
         postMessage('some message');

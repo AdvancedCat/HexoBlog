@@ -36,3 +36,5 @@ firefox 4.0+已经开支支持calc()功能，需要使用-moz-calc()私有属性
 chrome从19 dev版，开始支持私有的-webkit-calc()写法；
 IE9支持原生写法，calc()；
 
+`caniuse`网站上的[兼容性](https://caniuse.com/#feat=calc)
+
