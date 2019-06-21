@@ -1,5 +1,5 @@
 {
-  "name": "HexoBlog",
+  "name": "hexoblog",
   "version": "0.0.0",
   "private": false,
   "hexo": {
@@ -22,7 +22,5 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0"
   },
-  "devDependencies": {
-    "commander": "^2.11.0"
-  }
+  "devDependencies": {}
 }
